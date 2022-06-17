@@ -60,8 +60,8 @@ png(paste0(date(),"_Truebung_Zentrifuge_Filter.png"),xxx<-4800,xxx/16*9,"px",12,
 bev$barplot$heights <- print(rev(c(.2, .2, apply(bev$barplot$xgab, 2, diff) / sum(c( apply(bev$barplot$xgab, 2, diff) )), .1)))
 bev$barplot$density <- c( rep(c(0,1000), 4), rep(c(0,25, 60),2) )
 bev$barplot$colp <- c(rep(colfunc(length( levels( bev$sub$Turbidity_800rcf_240s$beer ))), each = 2)
-                      , rep("orange", 3)
-                      , rep("darkgreen", 3))
+                      , rep("pink", 3)
+                      , rep("brown", 3))
 
 layout(matrix(rev(c(2,3,4,5,6,7,1,1,1,1,1,1)), byrow = F, ncol = 2), heights = bev$barplot$heights, widths = c(.05, .9))
 
@@ -219,20 +219,16 @@ png(paste0(date(),"_Resttruebung_Zentrifuge_Filter_relativ.png"),xxx<-4800,xxx/1
 bev$barplot$heights <- print(rev(c(.2, .2, apply(bev$barplot$xgab, 2, diff) / sum(c( apply(bev$barplot$xgab, 2, diff) )), .1)))
 bev$barplot$density <- c( rep(c(1000), 4), rep(c(25, 60),2) )
 bev$barplot$colp <- c(rep(colfunc(length( levels( bev$sub$Turbidity_800rcf_240s$beer ))), each = 1)
-                      , rep("orange", 2)
-                      , rep("darkgreen", 2))
+                      , rep("pink", 2)
+                      , rep("brown", 2))
+
+
+bev$barplot$xlab <- c("Goecklinger", "Hefe", "Paulaner", "Zischke"
+                      , "Budweiser", "Budweiser"
+                      , "Jupiler", "Jupiler")
 
 
 par(mar = c(5,4,1,1))
-# bev$barplot$xlab
-# text(c(1.5, 3.5, 5.5, 7.5, 10, 13) - .35 + .5
-#      , .75
-#      , bev$barplot$xlab
-#      , srt = 45
-#      , xpd = T
-#      , adj = 1
-#      , xpd = T)
-
 plot( 1, 1, type="n", xlab="", ylab="Relative Resttrübung in %", axes=F
       , xlim = c(.5,length(bev$barplot$y_rel)+.5)
       , ylim = c(0, 80))
